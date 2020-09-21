@@ -1,0 +1,64 @@
+#开发环境
+server:
+  port: 9090
+  # session失效时间
+  servlet:
+    context-path: /crash
+    session:
+      timeout: 7200s
+
+spring:
+  profiles:
+    include: sysconfig
+
+  #json数据格式化
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    time-zone: GMT+8
+  # 数据源
+  datasource:
+    driver-class-name: com.cloudera.impala.jdbc41.Driver
+    url: jdbc:impala://192.168.0.20:21050/default
+    username: root
+    password: xuejinyu
+    # Druid连接池配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 初始化
+      initial-size: 1
+      # 最大
+      max-wait: 10
+      # 最小
+      min-idle: 1
+      # 最大连接等待超时时间
+      max-active: 60000
+      # 周期性剔除长时间呆在池子里未被使用的空闲连接, 1 min 一次,单位毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间,单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      # 设置连接在池中最大存活时长，超过上限才会被清理
+      max-evictable-idle-time-millis: 600000
+      # 验证连接是否可用，使用的SQL语句
+      validation-query: SELECT 'x'
+      # 连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除.
+      test-while-idle: true
+      # 借出连接时不要测试，否则很影响性能
+      test-on-borrow: false
+      # 指明是否在归还到池中前进行检验
+      test-on-return: false
+
+  # http
+  http:
+    # 过滤字符编码
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+  # 文件上传大小
+  servlet:
+    multipart:
+      # 单个文件大小
+      max-file-size: 50MB
+      # 一次传多个文件的总大小
+      max-request-size: 100MB

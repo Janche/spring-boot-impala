@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-boot-impala</artifactId>
+        <groupId>com.example.janche</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>web</artifactId>
+    <packaging>war</packaging>
+
+    <!--编译跳过test-->
+    <properties>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <dependencies>
+        <!--把内置的tomcat给注释掉 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- SpringBoot 项目热部署 依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.example.janche</groupId>
+            <artifactId>backend</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>spring-boot-impala</finalName>
+        <plugins>
+            <plugin>
+                <!--4. 配置maven的war包插件 -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webResources>
+                        <!--5. 配置各模块的jar包资源目录，一个模块则只需配置一个resource -->
+                        <!-- 把common模块的jar包打进去 -->
+                        <resource>
+                            <!-- 特别声明： 此处需要使用相对路径，找到common模块 -->
+                            <directory>../backend/lib</directory>
+                            <targetPath>WEB-INF/lib/</targetPath>
+                            <includes>
+                                <include>**/*.jar</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+            <!--6. 下面的plugin为Springboot常规的打包插件，打war包时，加不加都没有关系，加上之后，会改变包结构，会让war包变大，所以推荐不加 -->
+            <!--<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>-->
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.janche.log.dao.CrashLogMapper">
+  <resultMap id="BaseResultMap" type="com.example.janche.log.domain.CrashLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="udid" jdbcType="VARCHAR" property="udid" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="devicetype" jdbcType="VARCHAR" property="devicetype" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="confversion" jdbcType="VARCHAR" property="confversion" />
+    <result column="logtype" jdbcType="VARCHAR" property="logtype" />
+    <result column="logcontent" jdbcType="VARCHAR" property="logcontent" />
+    <result column="devicemodel" jdbcType="VARCHAR" property="devicemodel" />
+    <result column="osversion" jdbcType="VARCHAR" property="osversion" />
+    <result column="v1" jdbcType="VARCHAR" property="v1" />
+    <result column="v2" jdbcType="VARCHAR" property="v2" />
+    <result column="v3" jdbcType="VARCHAR" property="v3" />
+    <result column="v4" jdbcType="VARCHAR" property="v4" />
+    <result column="v5" jdbcType="VARCHAR" property="v5" />
+    <result column="v6" jdbcType="VARCHAR" property="v6" />
+    <result column="v7" jdbcType="VARCHAR" property="v7" />
+    <result column="v8" jdbcType="VARCHAR" property="v8" />
+    <result column="localtime" jdbcType="VARCHAR" property="localtime" />
+    <result column="localtimezone" jdbcType="VARCHAR" property="localtimezone" />
+    <result column="timestamp" jdbcType="BIGINT" property="timestamp" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+  </resultMap>
+
+  <update id="scheduleRefreshMetadata">
+#       invalidate metadata crash
+  </update>
+
+  <update id="scheduleRefreshPartitions">
+#       alter table crash recover partitions
+  </update>
+
+</mapper>

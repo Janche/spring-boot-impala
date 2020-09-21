@@ -1,0 +1,42 @@
+# Druid 连接池需要为不同war包指定不同的实例化名称
+spring:
+  jmx:
+    default-domain: spring-boot-impala
+###   Mybatis Config  ###
+mybatis:
+  check-config-location: true
+  typeAliasesPackage: com.example.janche.**.domain
+  mapperLocations: classpath:mapper/**/*.xml
+  type-handlers-package: com.example.janche.common.mybatis.handler.*
+
+#pagehelper
+pagehelper:
+  helperDialect: impala
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  offsetAsPageNum: true
+  pageSizeZero: true
+#  dialectAlias: mysql=com.github.pagehelper.dialect.helper.MySqlDialect
+  dialectAlias: impala=com.github.pagehelper.dialect.helper.HsqldbDialect
+
+
+###   通用 Mapper  ###
+mapper:
+  IDENTITY: mysql
+  notEmpty: false
+  mappers:
+    - com.example.janche.common.core.Mapper
+    - com.example.janche.common.core.TkMapper
+
+# 日志
+logging.config: classpath:logging-spring.xml
+
+swagger:
+  title: spring-boot对impala和mybatis的集成
+  base-package: com.example.janche
+  version: 1.0.0
+  contract-name: lirong
+  contract-url: https://blog.csdn.net/qq_34997906
+  contract-email: lirong@libii.com
+
