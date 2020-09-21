@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 @Data
-@Table(name = "crash_t")
+@Table(name = "crash")
 public class CrashLog {
     private String udid;
 
