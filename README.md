@@ -2,7 +2,7 @@
 **项目架构：`springboot2` + `mybatis` + `knife4j` + `impala`**
 
 1. 通过`mybatis`的方式操作`impala`数据库，去掉冗杂的jdbc代码
-2. 集成了通用`mapper`，`pagehelper`分页插件
+2. 集成了适合`impala`的通用`mapper`和`pagehelper`，使用`offset`方式进行分页
 3. 采用Druid连接池管理对impala数据库的连接，配置对空闲连接的剔除管理(此配置解决了，当impala服务重启后，web项目再次访问查询，获取不到连接的问题。)
 4. 接口文档地址：http://localhost:9090/crash/doc.html (采用knife4j的文档风格)
 
