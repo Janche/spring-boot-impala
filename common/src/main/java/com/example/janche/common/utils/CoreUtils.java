@@ -13,7 +13,7 @@ import java.util.UUID;
 /**
  * @author lirong
  * @desc 系统常用工具类
- * @date 2019-10-9 10:52:23
+ * @date 2020-9-21 17:35:22
  */
 @Slf4j
 public class CoreUtils {

@@ -4,7 +4,7 @@ package com.example.janche.common.restResult;
  * @author lirong
  * @ClassName: ResultCode
  * @Description: 返回的状态码
- * @date 2018-12-03 9:26
+ * @date 2020-9-21 17:35:22
  */
 public enum ResultCode {
 

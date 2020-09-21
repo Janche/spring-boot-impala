@@ -23,5 +23,6 @@
 2. 定义好表结构后，配置 `backend/src/test/java/CodeGenerator.java` 这个文件，运行即可生成项目的基础代码
 
 ### 相关的连接异常
-[已解决] Caused by: com.cloudera.impala.jdbc41.internal.apache.thrift.transport.TTransportException
-[已解决] Caused by: java.net.SocketException: Software caused connection abort: socket write error
+- [已解决] Caused by: com.cloudera.impala.jdbc41.internal.apache.thrift.transport.TTransportException
+- [已解决] Caused by: java.net.SocketException: Software caused connection abort: socket write error
+

@@ -8,7 +8,7 @@ import tk.mybatis.mapper.common.ExampleMapper;
 /**
  * @author lirong
  * @Description mybatis通用Mapper
- * @date 2019-7-24 14:50:45
+ * @date 2020-9-21 17:35:22
  */
 public interface TkMapper<T> extends
         BaseMapper<T>,

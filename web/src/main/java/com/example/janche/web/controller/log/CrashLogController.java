@@ -13,7 +13,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.transaction.CannotCreateTransactionException;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +21,9 @@ import java.util.List;
 
 /**
 *
-* @author Generate
+* @author lirong
 * @Description:
-* @date 2020-08-28 05:25:26
+* @date 2020-9-21 17:33:28
 */
 @Slf4j
 @RestController
@@ -53,6 +52,7 @@ public class CrashLogController {
             List<CrashLog> list = crashLogService.list(pageParam, queryDTO);
             PageInfo pageInfo = new PageInfo(list);
             return ResultGenerator.genSuccessResult(pageInfo);
+            // todo impala服务重启后，第一次查询，可能会抛出连接失败的异常，需要再查询一次，即可解决问题，生产环境中impala基本不会怎么重启，所以问题不大。
         }catch (CannotCreateTransactionException e){
             throw new CustomException(ResultCode.CONNECTION_FAILED);
         }catch (Exception e){

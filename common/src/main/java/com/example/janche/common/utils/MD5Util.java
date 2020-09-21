@@ -5,12 +5,11 @@ import java.security.MessageDigest;
 /**
  * @author lirong
  * @ClassName: MD5Util
- * @Description: MD5加密解密工具类
- * @date 2018-12-14 10:18
+ * @Description: MD5加密解密工具类12-14 10:18
  */
 
 public class MD5Util {
-    private static final String SALT = "CDJCY";
+    private static final String SALT = "Janche";
 
     /**
      * 使用系统指定的盐加密

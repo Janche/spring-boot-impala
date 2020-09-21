@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * @author lirong
  * @ClassName: PageParam
  * @Description: 分页信息的封装
- * @date 2018-11-02 10:28
+ * @date 2020-9-21 17:35:22
  */
 @Data
 @AllArgsConstructor
