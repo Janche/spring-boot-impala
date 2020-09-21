@@ -26,11 +26,5 @@ public class WebConfigration implements WebMvcConfigurer {
         registry.addResourceHandler("/static/**")
                 //到哪些目录下去查找静态资源
                 .addResourceLocations("classpath:/static/");
-        // 解决 SWAGGER 404报错
-//        registry.addResourceHandler("/swagger-ui.html")
-//                .addResourceLocations("classpath:/META-INF/resources/");
-//        registry.addResourceHandler("/webjars/**")
-//                .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
-
 }
