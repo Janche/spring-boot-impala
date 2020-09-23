@@ -25,4 +25,7 @@
 ### 相关的连接异常
 - [已解决] Caused by: com.cloudera.impala.jdbc41.internal.apache.thrift.transport.TTransportException
 - [已解决] Caused by: java.net.SocketException: Software caused connection abort: socket write error
+- [已解决] Caused by: com.alibaba.druid.pool.GetConnectionTimeoutException: wait millis 10, active 1, maxActive 60000, creating 1, createElapseMillis 21
+- [可忽略] java.sql.SQLException: [Cloudera][ImpalaJDBCDriver](500593) Communication link failure. Failed to connect to server. （等待连接池中的连接被回收后，重新建立连接）
 
+**博客地址：https://blog.csdn.net/qq_34997906/article/details/108752222**
