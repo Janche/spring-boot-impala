@@ -54,6 +54,12 @@ public class CrashLogController {
             return ResultGenerator.genSuccessResult(pageInfo);
             // todo impala服务重启后，第一次查询，可能会抛出连接失败的异常，需要再查询一次，即可解决问题，生产环境中impala基本不会怎么重启，所以问题不大。
         }catch (CannotCreateTransactionException e){
+            try {
+                // 睡眠1分钟，等待线程池回收空闲线程，清空后，再次查询即可
+                Thread.sleep(60000);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
             throw new CustomException(ResultCode.CONNECTION_FAILED);
         }catch (Exception e){
             throw new CustomException(ResultCode.FAIL);
@@ -63,6 +69,7 @@ public class CrashLogController {
     /**
      * 刷新元数据 INVALIDATE METADATA TABLE
      * 每天 1点执行一次
+     * 下面这两天刷新语句，当使用高版本的impala时，可以不用设置，可以通过配置同步hive元数据来自动刷新
      */
 //    @Scheduled(cron = "0 0 1 * * ?")
     public void scheduleRefreshMetadata() {

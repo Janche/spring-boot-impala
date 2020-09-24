@@ -16,7 +16,7 @@ import java.util.List;
 public interface CrashLogService extends Service<CrashLog> {
 
     /**
-     * 根据分页、排序信息和检索条件查询 @size 条 字典表数据
+     * 根据分页、排序信息和检索条件查询 @size 条 日志数据
      * @param pageParam 分页参数
      * @param queryDTO  查询关键字
      * @return

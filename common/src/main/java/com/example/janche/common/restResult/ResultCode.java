@@ -59,7 +59,7 @@ public enum ResultCode {
 
     PARAM_ILLEGAL(4202, "请求参数不规范"),
 
-    CONNECTION_FAILED(5001, "连接超时已断开，请重新查询"),
+    CONNECTION_FAILED(5001, "连接超时已断开，请等待1分钟后，重新查询"),
     ;
 
 
